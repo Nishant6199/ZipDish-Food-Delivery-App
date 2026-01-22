@@ -1,0 +1,13 @@
+<div class="w-screen min-h-screen bg-[#fff9f6]">
+    @if (userService.getUser().role == "User") {
+        <app-user-dashboard />
+    }
+
+    @if (userService.getUser().role == "Owner") {
+        <app-owner-dashboard />
+    }
+
+    @if (userService.getUser().role == "DeliveryBoy") {
+        <app-delivery-dashboard />
+    }
+</div>

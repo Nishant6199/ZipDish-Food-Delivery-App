@@ -1,0 +1,43 @@
+<form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" >
+    <div class="min-h-screen w-full flex items-center justify-center px-4 py-2" style="background-color: '#fff9f6';">
+        <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-8 border border-[#ddd]">
+            <h1 class="text-3xl font-bold mb-2 text-[#ff4d2d]">ZipDish</h1>
+            <p class="text-gray-600 mb-8"> Login to your account to get started with delicious food deliveries. </p>
+
+            <!-- {{Email}} -->
+
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-medium mb-1">Email</label>
+                <input type="email" id="email" name="email" [(ngModel)]="email" required
+                    class="w-full border rounded-lg px-3 py-2 border-[#ddd] focus:outline focus:border-orange-500"
+                    placeholder="Enter Email...">
+            </div>
+
+            <!-- {{Password}} -->
+
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700 font-medium mb-1">Password</label>
+                <div class="relative">
+                    <input [type]="hide()?'text':'password'" id="password" name="password" [(ngModel)]="password"
+                        class="w-full border rounded-lg px-3 py-2 border-[#ddd] focus:outline focus:border-orange-500"
+                        placeholder="Enter Password...">
+                    <mat-icon class="absolute right-3 top-2 " (click)="togglePassword($event)" matSuffix>
+                        {{hide() ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                </div>
+            </div>
+
+            <div [routerLink]="'/forget'" class="text-right mb-4 text-[#ff4d2d] font-medium cursor-pointer">
+                Forgot Password
+            </div>
+
+            <button type="submit"  class="w-full font-semibold py-2 mb-4 rounded-lg border transition duration-200 bg-[#ff4d2d] text-white hover:bg-[#e64323] cursor-pointer"> Login </button>
+
+            <div  class="flex items-center justify-center gap-4 border border-gray-400 rounded-lg py-2 hover:bg-gray-100 transition duration-200 cursor-pointer">
+                <img src="../../assets/google.png" class="h-5 w-5 " alt="Google">
+                <p class="">Login with Google</p>
+            </div>
+            <p class="mt-6 text-center">Don't have an account? <span class="text-[#ff4d2d] cursor-pointer" [routerLink]="'/register'">Register</span></p>
+        </div>
+    </div>
+</form>

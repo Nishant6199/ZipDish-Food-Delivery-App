@@ -1,0 +1,76 @@
+<div class="w-full h-14 flex items-center justify-between md:justify-center gap-7.5 fixed top-0 z-9999 bg-[#fff9f6 ]">
+
+
+    @if (showSearch() == true) {
+    <div class=" w-[90%] h-12 bg-white shadow-xl rounded-lg items-center gap-5 flex fixed top-20 left-[5%] md:hidden">
+        <div class="flex items-center w-[30%] overflow-hidden gap-2.5 border-r-2 border-gray-400">
+            <mat-icon style="width: 25px; height: 25px; color: #ff4d2d;">location_on</mat-icon>
+            <div class="w-[80%] truncate text-gray-600">
+                {{ city || "Detecting..." }}
+            </div>
+        </div>
+        <div class="w-[80%] flex items-center gap-2">
+            <mat-icon style="width: 25; height: 25; color: #ff4d2d;">search</mat-icon>
+            <input class="px-2 text-gray-700 outline-0 w-full" type="text" placeholder="Search Food...">
+        </div>
+    </div>
+    }
+
+
+    <h1 class="text-2xl font-bold mb-2 text-[#ff4d2d]">ZipDish</h1>
+    <div class=" md:w-[60%] lg:w-[40%] h-12 bg-white shadow-xl rounded-lg items-center gap-5 hidden md:flex">
+        <div class="flex items-center w-[30%] overflow-hidden gap-2.5 border-r-2 border-gray-400 ">
+            <mat-icon style="width: 25px; height: 25px; color: #ff4d2d;">location_on</mat-icon>
+            <div class="w-[80%] truncate text-gray-600">
+                {{ city || "Detecting..." }}
+            </div>
+        </div>
+        <div class="w-[80%] flex items-center gap-2">
+            <mat-icon style="width: 25; height: 25; color: #ff4d2d;">search</mat-icon>
+            <input class="px-2 text-gray-700 outline-0 w-full" type="text" placeholder="Search Food...">
+        </div>
+    </div>
+
+    <div class="relative flex items-center justify-center gap-4">
+        
+        @if (showSearch() == true) {
+            <div (click)="isShowSearch($event)" class="text-[#ff4d2d]">
+                <mat-icon>close_small</mat-icon>
+            </div>
+        }
+
+        <div (click)="isShowSearch($event)" class="md:hidden block">
+            <mat-icon class="hidden" style="width: 25; height: 25; color: #ff4d2d;">search</mat-icon>
+        </div>
+        <div class="relative cursor-pointer items-center pt-1.5">
+            <mat-icon style="width: 25px; height: 25px; color: #ff4d2d;">shopping_cart</mat-icon>
+            <span class="absolute -top-2 right-1.5 text-[#e29a8d]">0</span>
+        </div>
+
+        <button class="hidden md:block px-3 py-1 rounded-lg bg-[#ff4d2d]/10 text-[#ff4d2d] text-sm font-medium">
+            My Order
+        </button>
+
+        <div (click)="showAbout($event)"
+            class="w-10 h-10 rounded-full flex items-center justify-center bg-[#ff4d2d] text-white text-xl shadow-xl font-semibold cursor-pointer">
+            {{userService.getUser().fullName.charAt(0)}}
+        </div>
+
+        @if (showInfo() == true) {
+        <div
+            class="fixed top-15 right-2.5 md:right-[10%] lg:right-[10%] w-45 bg-white shadow-2xl rounded-lg p-5 flex flex-col gap-2.5 z-9999">
+            <div class="text-[16px] font-semibold">
+                {{userService.getUser().fullName}}
+            </div>
+            <div class="md:hidden text-[#ff4d2d] font-semibold cursor-pointer">My Orders</div>
+            <div (click)="logout()" class="flex items-center gap-4 cursor-pointer ">
+                <div class="font-semibold text-[#ff4d2d]"> Logout </div>
+                <div class="text-[#ff4d2d]"><mat-icon> logout </mat-icon></div>
+
+            </div>
+        </div>
+        }
+
+    </div>
+
+</div>
