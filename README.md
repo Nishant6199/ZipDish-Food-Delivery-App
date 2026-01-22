@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ZipDishApp
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
@@ -57,3 +58,7 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+=======
+# ZipDish-Food-Delivery-App
+ZipDish is a full-stack food delivery web application built using Angular and ASP.NET Core Web API. It allows shop owners to manage their shops and food items, while users can browse food, place orders, and interact with the platform in real time.
+>>>>>>> f8081d696a951c79687126bbdbb04f5fd090601f
